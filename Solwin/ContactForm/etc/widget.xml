@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="contactus_widget_custom" class="Solwin\ContactForm\Block\Widget\ContactUsWidget">
+        <label translate="true">Solwin Contact widget</label>
+        <description>Solwin Contact widget</description>
+        <parameters>
+            <parameter name="contact_title" xsi:type="text" visible="true" required="true" sort_order="0" >
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="contact_content" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Description</label>
+                <block class="Solwin\ContactForm\Block\Widget\TextField"/>
+            </parameter>
+            <parameter name="contact_enable_phoneno" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="30">
+                <label translate="true">Show Phone Number Field</label>
+                <description>Show Phone Number field in contact us form</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

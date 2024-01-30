@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <solwincontact_section>
+            <general>
+                <enable>0</enable>
+            </general>
+            <emailsend>
+                <contectemailsendto><![CDATA[test@example.com]]></contectemailsendto>
+                <contectemailsender>custom2</contectemailsender>
+                <emailtemplate>solwincontact_section_contectemailsend_emailtemplate</emailtemplate>
+            </emailsend>
+        </solwincontact_section>
+    </default>
+</config>

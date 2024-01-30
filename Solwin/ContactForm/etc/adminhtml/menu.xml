@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Solwin::menu" title="Solwin" module="Solwin_ContactForm" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Solwin_ContactForm::solwin_contactform_contactwidget" title="ContactWidget" module="Solwin_ContactForm" sortOrder="9999" resource="Magento_Backend::content" parent="Solwin::menu" action="solwin_contactform/contactwidget/index"/>
+		<add id="Solwin_ContactConfig::contact_config" title="Configuration" module="Solwin_ContactForm" sortOrder="5" parent="Solwin::menu" action="adminhtml/system_config/edit/section/solwincontact_section" resource="Solwin_ContactConfig::contact_config"/>
+	</menu>
+</config>

@@ -1,0 +1,60 @@
+<?php
+
+$widgetEnable = $block->getConfigValue('solwincontact_section/general/enable');
+$formActionUrl = $block->getFormActionUrl();
+$helper = $this->helper('Solwin\ContactForm\Helper\Data');
+$currPageUrl = $helper->getCurrentUrl();
+$moduleEnabled = $helper->getIsModuleEnabled('Solwin_ContactForm');
+?>
+<?php if ($widgetEnable && $moduleEnabled):?>
+<form class="form contact" action="<?= /* @noEscape */ $formActionUrl ?>" id="contact-form" method="post" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml($block->getData('contact_title')) ?></span></legend><br />
+        <div class="field note no-label"><?= $block->escapeHtml($block->getData('contact_content')) ?></div>
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?= $block->escapeHtml(__('Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtml(__('Email')) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <?php
+        if ($block->getData('contact_enable_phoneno')):
+            ?>
+        <div class="field telephone required">
+            <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+            <div class="control">
+                <input name="phone_number" id="telephone" title="<?= $block->escapeHtml(__('Phone Number')) ?>" value="" class="input-text" type="text" data-validate="{required:true, 'validate-number':true}"/>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="field subject required">
+            <label class="label" for="subject"><span><?= $block->escapeHtml(__('Subject')) ?></span></label>
+            <div class="control">
+                <input name="subject" id="subject" title="<?= $block->escapeHtml(__('Subject')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field comment required">
+            <label class="label" for="comment"><span><?= $block->escapeHtml(__('Message')) ?></span></label>
+            <div class="control">
+                <textarea name="message" id="comment" title="<?= $block->escapeHtml(__('Message')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="currUrl" id="currUrl" value="<?= /* @noEscape */ $currPageUrl ?>" />
+            <button type="submit" title="<?= $block->escapeHtml(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+    <?php
+endif;
+?>
